@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protect Our Environment - Let's Take Action</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        :root {
+            --primary-green: #2E7D32;
+            --light-green: #81C784;
+            --pale-green: #E8F5E9;
+            --dark-gray: #333333;
+            --white: #FFFFFF;
+        }
+
+        body {
+            color: var(--dark-gray);
+            line-height: 1.6;
+            background-color: var(--pale-green);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary-green);
+            color: var(--white);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--light-green);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(46, 125, 50, 0.7), rgba(46, 125, 50, 0.7)), 
+                        url('https://images.unsplash.com/photo-1490750967868-88aa4486c946?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: var(--light-green);
+            color: var(--dark-gray);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background-color: var(--light-green);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--white);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-img img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-green);
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Actions Section */
+        .actions {
+            background-color: var(--pale-green);
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card i {
+            font-size: 3rem;
+            color: var(--primary-green);
+            margin-bottom: 1.5rem;
+        }
+
+        .card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-green);
+        }
+
+        /* Stats Section */
+        .stats {
+            background-color: var(--primary-green);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .stats .section-title {
+            color: var(--white);
+        }
+
+        .stats .section-title::after {
+            background-color: var(--light-green);
+        }
+
+        .stats-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-card h5 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Pledge Section */
+        .pledge {
+            background-color: var(--white);
+            text-align: center;
+        }
+
+        .pledge-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--pale-green);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .pledge-form input, .pledge-form textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid var(--light-green);
+            border-radius: 5px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .pledge-form input:focus, .pledge-form textarea:focus {
+            border-color: var(--primary-green);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .social-links a {
+            color: var(--light-green);
+            font-size: 1.5rem;
+            margin: 0 1rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .stat-card h5 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">EcoGuard</div>
+                <div class="nav-links">
+                    <a href="#about">About</a>
+                    <a href="#actions">Actions</a>
+                    <a href="#stats">Stats</a>
+                    <a href="#pledge">Pledge</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Protect Our Planet, Secure Our Future</h1>
+            <p>Small actions make a big difference. Join us in safeguarding the environment for generations to come.</p>
+            <a href="#pledge" class="btn">Take the Pledge</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Why Environmental Protection Matters</h2>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Environment">
+                </div>
+                <div class="about-text">
+                    <h3>Our Planet Needs Us</h3>
+                    <p>Climate change, pollution, deforestation, and resource depletion are threatening the delicate balance of our planet's ecosystems. Every species, including humans, relies on a healthy environment for survival and well-being.</p>
+                    <p>Protecting the environment isn't just an option—it's a necessity. It ensures clean air and water, stable climates, biodiversity, and sustainable resources for all living things.</p>
+                    <p>By acting now, we can reverse damage, preserve natural habitats, and create a sustainable future for ourselves and future generations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Actions Section -->
+    <section id="actions" class="actions">
+        <div class="container">
+            <h2 class="section-title">What You Can Do</h2>
+            <div class="cards">
+                <div class="card">
+                    <i class="fas fa-recycle"></i>
+                    <h4>Reduce & Recycle</h4>
+                    <p>Cut down on single-use plastics, recycle paper, glass, and metal, and compost organic waste to minimize landfill impact.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-leaf"></i>
+                    <h4>Go Green</h4>
+                    <p>Plant trees, grow your own food, choose eco-friendly products, and support sustainable brands and practices.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-bolt"></i>
+                    <h4>Save Energy</h4>
+                    <p>Use renewable energy sources, switch to energy-efficient appliances, and reduce electricity and water consumption.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-people-group"></i>
+                    <h4>Spread Awareness</h4>
+                    <p>Educate others about environmental issues, advocate for green policies, and join community conservation efforts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="stats" class="stats">
+        <div class="container">
+            <h2 class="section-title">Environmental Facts</h2>
+            <div class="stats-cards">
+                <div class="stat-card">
+                    <h5>8M+</h5>
+                    <p>Tons of plastic enter oceans yearly</p>
+                </div>
+                <div class="stat-card">
+                    <h5>13M</h5>
+                    <p>Hectares of forest lost each year</p>
+                </div>
+                <div class="stat-card">
+                    <h5>1.5°C</h5>
+                    <p>Global temperature rise since 1880</p>
+                </div>
+                <div class="stat-card">
+                    <h5>78%</h5>
+                    <p>Of marine mammals are threatened by plastic</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pledge Section -->
+    <section id="pledge" class="pledge">
+        <div class="container">
+            <h2 class="section-title">Take the Environmental Pledge</h2>
+            <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto 2rem; color: var(--dark-gray);">
+                I commit to protecting the environment through daily actions, sustainable choices, and spreading awareness.
+            </p>
+            <div class="pledge-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea rows="3" placeholder="Your Environmental Commitment (Optional)"></textarea>
+                <button type="submit" class="btn">Submit Pledge</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <div class="copyright">
+                &copy; 2024 EcoGuard. All rights reserved. | Protect Our Environment
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
